@@ -5,7 +5,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import datetime, time
 import os
-client = commands.Bot(command_prefix='b!')
+client = commands.Bot(command_prefix='?')
 Client = discord.Client()
 
 @client.event
@@ -29,7 +29,7 @@ async def ping(ctx):
 
 @client.command(pass_context=True)
 async def purge(ctx, amount=301):
-    '''Usage: b!purge [amount]'''
+    '''Usage: ?purge [amount]'''
     if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '416226732966936577':
         try:
             channel = ctx.message.channel
@@ -46,7 +46,7 @@ async def purge(ctx, amount=301):
 
 @client.command(pass_context=True, no_pm=True)
 async def kick(ctx, user: discord.Member, * ,reason : str = None):
-    '''Usage: b!kick [member] [reason]'''
+    '''Usage: ?kick [member] [reason]'''
     if not ctx.message.author.bot:
         if ctx.message.author.server_permissions.administrator:
             if reason == "None":
